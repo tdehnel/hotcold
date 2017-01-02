@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>From 1 to 10</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700|Source+Code+Pro" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=bOvkgox4QQ">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png?v=bOvkgox4QQ" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png?v=bOvkgox4QQ" sizes="16x16">
+  <link rel="manifest" href="/manifest.json?v=bOvkgox4QQ">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=bOvkgox4QQ" color="#f25d46">
+  <link rel="shortcut icon" href="/favicon.ico?v=bOvkgox4QQ">
+  <meta name="theme-color" content="#fffff7">
+
+</head>
+
+<body>
+
+<div class="content">
+<h1>From 1 to 10</h1>
+<h2>A guessing game for lucky boys and girls.</h2>
+<button id="button">Play Game</button>
+</div>
+
+<script>
+
+document.getElementById("button").onclick = startGame;
+
+function startGame() {
+  var beginPlay = confirm ("I'm thinking of a number between 1 and 10.  Would you like to try and guess it?");
+    if (beginPlay) {
+      var setNumber = (Math.floor(Math.random() * 10) + 1);
+        console.log(setNumber);
+        var guess = parseInt(prompt("Enter your guess (numbers only please)."), 10);  // guess prompt and convert from string to number
+        for (;guess === guess;) {
+          if (guess > setNumber) {
+            guess = parseInt(prompt("That guess was too high. Try again."), 10);
+          }
+          else if (guess < setNumber) {
+            guess = parseInt(prompt("That guess was too low. Try again."), 10);
+          }
+          else {
+            alert ("You did it! " + guess + " was the right number.");
+            return;
+          }
+        }
+    }
+
+      else alert("That's cool, maybe another time.");
+}
+
+</script>
+
+</body>
+</html>
